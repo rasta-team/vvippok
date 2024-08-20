@@ -15,6 +15,7 @@ green='\e[0;32m'
 # ===================
 clear
   # // Exporint IP AddressInformation
+apt install -y curl
 export IP=$( curl -sS icanhazip.com )
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
@@ -53,11 +54,11 @@ else
 fi
 
 # // IP Address Validating
-IZIN=$(curl https://raw.githubusercontent.com/rasta-team/vvippok/main/REGISTRASI | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl https://raw.githubusercontent.com/rasta-team/vvippok/main/REGISTRASI | grep $MYIP | awk '{print $4}')
 if [ $MYIP = $IZIN ]; then
-    echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
-else
     echo -e "${OK} IP Address ( ${green}$MYIP${NC} )"
+else
+    echo -e "${EROR} IP Address ( ${YELLOW}Not Detected${NC} )"
 fi
 # // Validate Successfull
 echo ""
