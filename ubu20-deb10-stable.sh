@@ -184,20 +184,40 @@ fi
 
 # GEO PROJECT
 clear
-function nginx_install() {
+# function nginx_install() 
+# {
     # // Checking System
-    if [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "ubuntu" ]]; then
-        print_install "Setup nginx For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
+    # if [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "ubuntu" ]]; then
+        # print_install "Setup nginx For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
         # // sudo add-apt-repository ppa:nginx/stable -y 
-        apt-get install nginx -y 
-    elif [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "debian" ]]; then
-        print_success "Setup nginx For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
-        apt install -y nginx
-    else
-        echo -e " Your OS Is Not Supported ( ${YELLOW}$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')${FONT} )"
+        # apt-get install nginx -y 
+    # elif [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "debian" ]]; then
+        # print_success "Setup nginx For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
+        
+		# apt -y install nginx
+		# cd
+		# rm /etc/nginx/sites-enabled/default
+		# rm /etc/nginx/sites-available/default
+		# wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/rasta-team/vpsme/main/nginx.conf"
+		# mkdir -p /home/vps/public_html
+		# wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/rasta-team/vpsme/main/vps.conf"
+		# /etc/init.d/nginx restart
+    # else
+        # echo -e " Your OS Is Not Supported ( ${YELLOW}$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')${FONT} )"
         # // exit 1
-    fi
-}
+    # fi
+# }
+
+# install webserver
+apt -y install nginx
+cd
+rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/${GitUser}/vpsme/main/nginx.conf"
+mkdir -p /home/vps/public_html
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/vpsme/main/vps.conf"
+/etc/init.d/nginx restart
+#finish
 
 # Update and remove packages
 function base_package() {
