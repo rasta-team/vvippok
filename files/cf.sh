@@ -13,8 +13,8 @@ read -rp "Input Domain Name. Example ( kontol12 ): " -e sub
 #SUB_DOMAIN=${sub}.serverpremium.biz.id
 #CF_ID=vscobangst111@gmail.com
 #CF_KEY=4a912a2d56a1b3837d48751da5334b74a4fb8
-DOMAIN=serverpremium.biz.id
-SUB_DOMAIN=${sub}.vpsteam.my.id
+DOMAIN=vpsteam.my.id
+SUB_DOMAIN=${sub}.cf.vpsteam.my.id
 CF_ID=mydrive5895@gmail.com
 CF_KEY=de485094e52cae661d78462cefe9b4e09bb8a
 set -euo pipefail
