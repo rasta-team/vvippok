@@ -24,10 +24,10 @@ clear;clear;clear
 
   # // Banner
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
-echo -e " Dev > DrixyHostinger 2020${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
+echo -e " Dev > Rasta-Team Script 2024${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
 echo -e " This Will Quick Setup VPN Server On Your Server"
 echo -e " Auther : ${green}IHN INDONESIA 🐦‍🔥${NC}${YELLOW}(${NC} ${green}"
-echo -e " Â© Recode By My Self IHN INDONESIA 🐦‍🔥${YELLOW}(${NC} 2023 ${YELLOW})${NC}"
+echo -e " Â© Recode By My Self IHN INDONESIA 🐦‍🔥${YELLOW}(${NC} 2024 ${YELLOW})${NC}"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
 sleep 2
@@ -83,7 +83,7 @@ gem install lolcat
 apt install wondershaper -y
 clear
 # REPO    
-    REPO="https://raw.githubusercontent.com/drixyhostingerr/vvippok/main/"
+    REPO="https://raw.githubusercontent.com/rasta-team/vvippok/main/"
 
 ####
 start=$(date +%s)
@@ -155,7 +155,7 @@ print_install "Membuat direktori xray"
 
 # Change Environment System
 function first_setup(){
-    timedatectl set-timezone Asia/Jakarta
+    timedatectl set-timezone Asia/Kuala_Lumpur
     echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
     echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
     print_success "Directory Xray"
@@ -206,7 +206,7 @@ function base_package() {
     apt install figlet -y
     apt update -y
     apt upgrade -y
-    apt dist-upgrade -y
+    #apt dist-upgrade -y
     systemctl enable chronyd
     systemctl restart chronyd
     systemctl enable chrony
@@ -270,7 +270,7 @@ restart_system(){
 MYIP=$(curl -sS ipv4.icanhazip.com)
 echo -e "\e[32mloading...\e[0m" 
 clear
-izinsc="https://raw.githubusercontent.com/drixyhostingerr/vvippok/main/REGISTRASI"
+izinsc="https://raw.githubusercontent.com/rasta-team/vvippok/main/REGISTRASI"
 # USERNAME
 rm -f /usr/bin/user
 username=$(curl $izinsc | grep $MYIP | awk '{print $2}')
@@ -306,8 +306,10 @@ else
 sts="${Error}"
 fi
 TIMES="10"
-CHATID="6360618203"
-KEY="6724149405:AAEPG6ajymbTvKfUDgFHiYfDQnvtGOGx_Wg"
+#CHATID="6360618203"
+#KEY="6724149405:AAEPG6ajymbTvKfUDgFHiYfDQnvtGOGx_Wg"
+CHATID="304419521"
+KEY="7433048373:AAF1A6trfQvfJlsZaIkbO9IwLk4Jfso9nYk"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
     TIMEZONE=$(printf '%(%H:%M:%S)T')
     TEXT="
@@ -322,7 +324,7 @@ URL="https://api.telegram.org/bot$KEY/sendMessage"
 <code>Time     :</code><code>$TIMEZONE</code>
 <code>Exp Sc.  :</code><code>$exp</code>
 <code>------------------------------------------------------------------------------------</code>
-<b> --------------------©- DrixyHostinger 2020 ©----------------------------</b>
+<b> --------------------©- Rasta-Team 2024 ©----------------------------</b>
 <code>Automatic Notifications From Github</i>
 "'&reply_markup={"inline_keyboard":[[{"text":"CHAT ADMIN","url":"https://wa.me/6285173173554"}]]}' 
 
@@ -398,7 +400,7 @@ rm -rf /etc/vmess/.vmess.db
 #Instal Xray
 function install_xray() {
 clear
-    print_install "Core Xray 1.8.1 Latest Version"
+    print_install "Core Xray 1.8.23 Latest Version"
     domainSock_dir="/run/xray";! [ -d $domainSock_dir ] && mkdir  $domainSock_dir
     chown www-data.www-data $domainSock_dir
     
@@ -412,7 +414,7 @@ bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release
     #chmod +x /usr/local/bin/xray
     domain=$(cat /etc/xray/domain)
     IPVS=$(cat /etc/xray/ipvps)
-    print_success "Core Xray 1.8.1 Latest Version"
+    print_success "Core Xray 1.8.23 Latest Version"
     
     # Settings UP Nginix Server
     clear
@@ -520,8 +522,8 @@ echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 sed -i '$ i\echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6' /etc/rc.local
 
 #update
-# set time GMT +7
-ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
+# set time GMT +8
+ln -fs /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -531,7 +533,7 @@ print_success "Password SSH"
 function udp_mini(){
 clear
 print_install "Memasang Service Limit IP & Quota"
-wget -q https://raw.githubusercontent.com/drixyhostingerr/vvippok/main/config/fv-tunnel && chmod +x fv-tunnel && ./fv-tunnel
+wget -q https://raw.githubusercontent.com/rasta-team/vvippok/main/config/fv-tunnel && chmod +x fv-tunnel && ./fv-tunnel
 
 # // Installing UDP Mini
 mkdir -p /usr/local/kyt/

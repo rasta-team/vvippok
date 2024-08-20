@@ -27,8 +27,8 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-    wget https://raw.githubusercontent.com/drixyhostingerr/vvippok/main/menu/menu.zip
-    wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/drixyhostingerr/vvippok/main/encrypt/epro" ; chmod +x /usr/bin/enc
+    wget https://raw.githubusercontent.com/rasta-team/vvippok/main/menu/menu.zip
+    wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/rasta-team/vvippok/main/encrypt/epro" ; chmod +x /usr/bin/enc
     7z e -paskykenza123 menu.zip
     unzip menu.zip
     chmod +x menu/*
@@ -39,7 +39,7 @@ res1() {
     #mv menu/* /usr/local/sbin
     rm -rf menu.zip
     rm -rf update.sh
-    wget -qO- fv-tunnel "https://raw.githubusercontent.com/drixyhostingerr/vvippok/main/config/fv-tunnel" 
+    wget -qO- fv-tunnel "https://raw.githubusercontent.com/rasta-team/vvippok/main/config/fv-tunnel" 
     chmod +x fv-tunnel 
     bash fv-tunnel
     rm -rf fv-tunnel
