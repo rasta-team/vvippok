@@ -15,7 +15,7 @@ green='\e[0;32m'
 # ===================
 clear
   # // Exporint IP AddressInformation
-#apt install -y curl
+apt install -y curl
 export IP=$( curl -sS icanhazip.com )
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
@@ -163,7 +163,7 @@ function first_setup(){
     print_success "Directory Xray"
     if [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "ubuntu" ]]; then
     echo "Setup Dependencies $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
-    sudo apt update -y
+    apt update -y
     apt-get install --no-install-recommends software-properties-common
     add-apt-repository ppa:vbernat/haproxy-2.0 -y
     apt-get -y install haproxy=2.0.\*
@@ -174,8 +174,8 @@ elif [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"/
     echo deb "[signed-by=/usr/share/keyrings/haproxy.debian.net.gpg]" \
         http://haproxy.debian.net buster-backports-1.8 main \
         >/etc/apt/sources.list.d/haproxy.list
-    sudo apt-get update
-    apt-get -y install haproxy=1.8.\*
+    apt update -y
+    apt install -y haproxy=1.8.\*
 else
     echo -e " Your OS Is Not Supported ($(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g') )"
     exit 1
@@ -189,10 +189,10 @@ function nginx_install() {
     if [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "ubuntu" ]]; then
         print_install "Setup nginx For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
         # // sudo add-apt-repository ppa:nginx/stable -y 
-        sudo apt-get install nginx -y 
+        apt-get install nginx -y 
     elif [[ $(cat /etc/os-release | grep -w ID | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/ID//g') == "debian" ]]; then
         print_success "Setup nginx For OS Is $(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')"
-        apt -y install nginx 
+        apt install -y nginx
     else
         echo -e " Your OS Is Not Supported ( ${YELLOW}$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')${FONT} )"
         # // exit 1
