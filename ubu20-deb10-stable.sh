@@ -15,7 +15,7 @@ green='\e[0;32m'
 # ===================
 clear
   # // Exporint IP AddressInformation
-apt install -y curl
+#apt install -y curl
 export IP=$( curl -sS icanhazip.com )
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
