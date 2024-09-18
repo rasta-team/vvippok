@@ -28,8 +28,8 @@ clear;clear;clear
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo -e " Dev > Rasta-Team Script 2024${YELLOW}(${NC}${green} Stable Edition ${NC}${YELLOW})${NC}"
 echo -e " This Will Quick Setup VPN Server On Your Server"
-echo -e " Auther : ${green}IHN INDONESIA 🐦‍🔥${NC}${YELLOW}(${NC} ${green}"
-echo -e " Â© Recode By My Self IHN INDONESIA 🐦‍🔥${YELLOW}(${NC} 2024 ${YELLOW})${NC}"
+echo -e " Auther : ${green}RASTA MALAYSIA 🐦‍🔥${NC}${YELLOW}(${NC} ${green}"
+echo -e " Â© Recode By My Self RASTA MALAYSIA 🐦‍🔥${YELLOW}(${NC} 2024 ${YELLOW})${NC}"
 echo -e "${YELLOW}----------------------------------------------------------${NC}"
 echo ""
 sleep 2
@@ -137,6 +137,7 @@ print_install "Membuat direktori xray"
     touch /var/log/xray/access.log
     touch /var/log/xray/error.log
     mkdir -p /var/lib/kyt >/dev/null 2>&1
+
     # // Ram Information
     while IFS=":" read -r a b; do
     case $a in
@@ -213,9 +214,9 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/${GitUser}/vpsme/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/rasta-team/vpsme/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/${GitUser}/vpsme/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/rasta-team/vpsme/main/vps.conf"
 /etc/init.d/nginx restart
 #finish
 
@@ -288,26 +289,31 @@ clear
 clear
 #GANTI PASSWORD DEFAULT
 restart_system(){
+
 #IZIN SCRIPT
 MYIP=$(curl -sS ipv4.icanhazip.com)
 echo -e "\e[32mloading...\e[0m" 
 clear
 izinsc="https://raw.githubusercontent.com/rasta-team/vvippok/main/REGISTRASI"
+
 # USERNAME
 rm -f /usr/bin/user
 username=$(curl $izinsc | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
 expx=$(curl $izinsc | grep $MYIP | awk '{print $3}')
 echo "$expx" >/usr/bin/e
+
 # DETAIL ORDER
 username=$(cat /usr/bin/user)
 oid=$(cat /usr/bin/ver)
 exp=$(cat /usr/bin/e)
 clear
+
 # CERTIFICATE STATUS
 d1=$(date -d "$valid" +%s)
 d2=$(date -d "$today" +%s)
 certifacate=$(((d1 - d2) / 86400))
+
 # VPS Information
 DATE=$(date +'%Y-%m-%d')
 datediff() {
@@ -331,7 +337,7 @@ TIMES="10"
 #CHATID="6360618203"
 #KEY="6724149405:AAEPG6ajymbTvKfUDgFHiYfDQnvtGOGx_Wg"
 CHATID="304419521"
-KEY="7433048373:AAF1A6trfQvfJlsZaIkbO9IwLk4Jfso9nYk"
+KEY="7299486104:AAGDWevt-Sp1Iaybck9FJWSptkAGPVaJVnc"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
     TIMEZONE=$(printf '%(%H:%M:%S)T')
     TEXT="
@@ -348,7 +354,7 @@ URL="https://api.telegram.org/bot$KEY/sendMessage"
 <code>------------------------------------------------------------------------------------</code>
 <b> --------------------©- Rasta-Team 2024 ©----------------------------</b>
 <code>Automatic Notifications From Github</i>
-"'&reply_markup={"inline_keyboard":[[{"text":"CHAT ADMIN","url":"https://wa.me/6285173173554"}]]}' 
+"'&reply_markup={"inline_keyboard":[[{"text":"CHAT ADMIN","url":"https://wa.me/60169872312"}]]}' 
 
     curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 }
@@ -654,9 +660,10 @@ print_install "Memasang Backup Server"
 apt install rclone -y
 printf "q\n" | rclone config
 wget -O /root/.config/rclone/rclone.conf "${REPO}config/rclone.conf"
+
 #Install Wondershaper
 cd /bin
-git clone  https://github.com/magnific0/wondershaper.git
+git clone  https://github.com/rasta-team/wondershaper.git
 cd wondershaper
 sudo make install
 cd
